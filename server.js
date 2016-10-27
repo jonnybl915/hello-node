@@ -32,6 +32,10 @@ app.get('/', function (req, res) {
 app.get('/about', function (req, res) {
   res.render('about-page.html');
 });
+//404 When An unrouted route is hit
+app.get('/*', function (req, res) {
+  res.render('404.html');
+});
 
 //Set the port location
 app.set('port', PORT)
