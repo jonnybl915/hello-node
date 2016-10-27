@@ -1,6 +1,6 @@
 var Backbone = require('Backbone');
 var $ = require('jQuery');
-console.log($);
+// console.log($);
 
 var UserModel = Backbone.Model.extend({
   idAttribute: 'email',
@@ -8,9 +8,11 @@ var UserModel = Backbone.Model.extend({
 
 var UserCollection = Backbone.Collection.extend({
   model: UserModel,
-  url: 'https://randomuser.me/api?results=24',
+  url: '',
   parse: function(rawJSONResponse) {return rawJSONResponse.results},
-  initialize: function(){}
+  initialize: function(queryString){
+    this.url = "https://randomuser.me/api?" + qryStr;
+  }
 })
 
 module.exports = UserCollection;
